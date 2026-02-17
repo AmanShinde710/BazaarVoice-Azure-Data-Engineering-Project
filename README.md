@@ -5,6 +5,9 @@ This project demonstrates the design and implementation of an end-to-end Azure D
 
 The solution ingests data from an on-premises SQL Server into Azure, processes it through layered storage (Bronze → Silver), and delivers analytics-ready datasets optimized for downstream business consumption.
 
+<img width="1920" height="930" alt="Trigger successfull Run" src="https://github.com/user-attachments/assets/6a76f60b-c5b9-4de8-a838-1bf2b15f6f78" />
+
+
 🎯 Business Objective
 
 Enable scalable ingestion of frequently updated on-prem data
