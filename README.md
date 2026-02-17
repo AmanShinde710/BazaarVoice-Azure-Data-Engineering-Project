@@ -1,5 +1,6 @@
-📊 BazaarVoice – End-to-End Azure Data Engineering Project
-📌 Project Overview
+## 📊 BazaarVoice – End-to-End Azure Data Engineering Project
+
+### 📌 Project Overview
 
 This project demonstrates the design and implementation of an end-to-end Azure Data Engineering pipeline focused on handling multiple tables with large volumes of daily incremental data using a production-style, metadata-driven architecture.
 
@@ -8,7 +9,7 @@ The solution ingests data from an on-premises SQL Server into Azure, processes i
 <img width="1920" height="930" alt="Trigger successfull Run" src="https://github.com/user-attachments/assets/6a76f60b-c5b9-4de8-a838-1bf2b15f6f78" />
 
 
-🎯 Business Objective
+### 🎯 Business Objective
 
 Enable scalable ingestion of frequently updated on-prem data
 
@@ -20,7 +21,8 @@ Deliver clean, reliable, and analytics-ready data
 
 Maintain ingestion state using watermark-based processing
 
-🏗️ High-Level Architecture
+### 🏗️ High-Level Architecture
+
 On-Prem SQL Server
         |
         | (Self-Hosted Integration Runtime)
@@ -36,7 +38,8 @@ Databricks (Transformations)
         v
 ADLS Gen2 (Silver Layer - Delta Tables)
 
-🔄 Data Ingestion Strategy
+### 🔄 Data Ingestion Strategy
+
 🔹 Source
 
 On-premises SQL Server
@@ -53,35 +56,35 @@ Incremental ingestion using watermarks
 
 Controlled by a metadata control table stored in Azure SQL Database
 
-🧠 Metadata-Driven Pipeline Design
+### 🧠 Metadata-Driven Pipeline Design
 
 The ingestion pipeline is fully dynamic and metadata-driven.
 
-Pipeline Flow:
+#### Pipeline Flow:
 
-Lookup Activity
+  Lookup Activity
 
-Reads active table metadata from the control table
+  Reads active table metadata from the control table
 
-ForEach Activity
+  ForEach Activity
 
-Iterates over multiple source tables dynamically
+  Iterates over multiple source tables dynamically
 
-Copy Activity
+  Copy Activity
 
-Ingests only new and updated records into ADLS Gen2 (Bronze layer)
+  Ingests only new and updated records into ADLS Gen2 (Bronze layer)
 
-Databricks Notebook
+  Databricks Notebook
 
-Transforms Bronze data into clean, curated Silver datasets
+  Transforms Bronze data into clean, curated Silver datasets
 
-Stored Procedure
+  Stored Procedure
 
-Updates last_ingestion_date to maintain incremental state
+  Updates last_ingestion_date to maintain incremental state
 
 This design allows new tables to be onboarded without pipeline code changes.
 
-🥉 Bronze Layer (Raw Data)
+#### 🥉 Bronze Layer (Raw Data)
 
 Stores raw, unmodified data
 
@@ -89,7 +92,7 @@ Partitioned by ingestion date
 
 Acts as a replay and audit layer
 
-🥈 Silver Layer (Curated Data)
+#### 🥈 Silver Layer (Curated Data)
 
 Processed using Databricks notebooks
 
@@ -115,7 +118,8 @@ Reliable incremental processing
 
 Support for future enhancements like SCD
 
-🛠️ Technologies Used
+### 🛠️ Technologies Used
+
 | Category       | Tools                                       |
 | -------------- | ------------------------------------------- |
 | Data Ingestion | Azure Synapse Analytics, Azure Data Factory |
@@ -126,7 +130,7 @@ Support for future enhancements like SCD
 | Source         | SQL Server (On-Prem)                        |
 | Connectivity   | Self-Hosted Integration Runtime             |
 
-🚀 Key Learnings & Outcomes
+### 🚀 Key Learnings & Outcomes
 
 Built production-style incremental pipelines
 
@@ -140,5 +144,6 @@ Used Delta Lake for reliable, analytics-ready datasets
 
 Automated ingestion state management using control tables
 
-🔖 Tags
+### 🔖 Tags
+
 Azure Data Engineering · Incremental Ingestion · Databricks · Delta Lake · Synapse Analytics · ADLS Gen2 · Metadata Driven Pipelines
